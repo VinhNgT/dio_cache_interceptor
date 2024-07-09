@@ -7,7 +7,7 @@ name: Dart
 
 on:
   push:
-    branches: 
+    branches:
       - master
       - gha
   pull_request:
@@ -27,7 +27,7 @@ jobs:
 
       - uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
+          channel: "stable"
           cache: true
 
       - name: Install dependencies
@@ -49,11 +49,11 @@ jobs:
         run: |
           dart pub global run coverage:test_with_coverage
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{secrets.CODECOV_TOKEN}}
-          files: dio_cache_interceptor/coverage/lcov.info
+      # - name: Upload coverage to Codecov
+      #   uses: codecov/codecov-action@v3
+      #   with:
+      #     token: ${{secrets.CODECOV_TOKEN}}
+      #     files: dio_cache_interceptor/coverage/lcov.info
 
       # Run store tests.
       - name: Run tests with coverage on DB Store
@@ -61,7 +61,7 @@ jobs:
         run: |
           dart pub get
           dart pub global run coverage:test_with_coverage
-      
+
       - name: Run tests with coverage on File Store
         working-directory: dio_cache_interceptor_file_store
         run: |
@@ -73,20 +73,20 @@ jobs:
         run: |
           dart pub get
           dart pub global run coverage:test_with_coverage
-      
+
       - name: Run tests with coverage on ObjectBox Store
         working-directory: dio_cache_interceptor_objectbox_store
         run: |
           bash <(curl -s https://raw.githubusercontent.com/objectbox/objectbox-dart/main/install.sh)
           dart pub get
           dart pub global run coverage:test_with_coverage
-      
+
       - name: Run tests with coverage on Sembast Store
         working-directory: dio_cache_interceptor_sembast_storage
         run: |
           dart pub get
           dart pub global run coverage:test_with_coverage
-      
+
       - name: Run tests with coverage on Isar Store
         working-directory: dio_cache_interceptor_isar_store
         run: |
