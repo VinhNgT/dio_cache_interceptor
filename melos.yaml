@@ -1,0 +1,15 @@
+name: dio_cache_interceptor
+repository: https://github.com/VinhNgT/dio_cache_interceptor
+
+sdkPath: .fvm/flutter_sdk
+
+packages:
+  - dio_cache_interceptor*/
+
+ide:
+  intellij: false
+
+scripts:
+  get:
+    run: melos exec flutter pub get
+    description: Run `flutter pub get` for all packages.
