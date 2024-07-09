@@ -22,3 +22,12 @@ dev_dependencies:
   lints: ^3.0.0
   # https://pub.dev/packages/test
   test: ^1.23.1
+
+dependency_overrides:
+  # Fix Realm broken dependency in version before 3.1.0.
+  # https://pub.dev/packages/realm_dart/changelog#310-2024-06-25
+  # https://github.com/realm/realm-dart/issues/1729
+  #
+  # We should remove this override when we upgrade to version 3.1.0.
+  sane_uuid: 1.0.0-alpha.5
+  ejson: 0.3.0
